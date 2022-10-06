@@ -1,2 +1,8 @@
 .import
 .cache
+build/
+godot-cpp/
+.sconsign.dblite
+learn_godot/bin
+*.os
+compile_commands.json
