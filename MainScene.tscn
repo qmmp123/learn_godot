@@ -1,0 +1,16 @@
+[gd_scene format=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Label" type="Label" parent="."]
+margin_left = 428.0
+margin_top = 288.0
+margin_right = 597.0
+margin_bottom = 302.0
+text = "hello world"
+align = 1
+valign = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2( 512, 301 )
+scale = Vector2( 1e-05, 1 )
