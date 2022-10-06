@@ -5,13 +5,16 @@ using namespace godot;
 
 void GDExample::_register_methods()
 {
-    register_method((char *)"_process", &GDExample::_process);
+    register_method("_process", &GDExample::_process);
 }
 
 GDExample::GDExample()
-    : time_passed(0)
 {
-    std::cout << "GDExample init" << std::endl;
+}
+
+void GDExample::_init(){
+    std::cerr << "ran it" << std::endl;
+    time_passed = 0.0;
 }
 
 GDExample::~GDExample()

@@ -3,6 +3,8 @@
 build/
 godot-cpp/
 .sconsign.dblite
-learn_godot/bin
+learn_godot/bin/osx
+learn_godot/bin/x11
+
 *.os
 compile_commands.json

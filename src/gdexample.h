@@ -18,7 +18,7 @@ public:
 
     GDExample();
     ~GDExample();
-
+    void _init();
     void _process(float delta);
 };
 

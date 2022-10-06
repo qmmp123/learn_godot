@@ -28,17 +28,17 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/godot-cpp/build/include/gen
 )
 
-set(library 
+set(GDEXAMPLE_NAME 
     src/gdexample.cpp
     src/gdlibrary.cpp
 )
 
-add_library(library SHARED ${library})
+add_library(gdexample SHARED ${GDEXAMPLE_NAME})
 
 # install stuff
 set(CMAKE_INSTALL_PREFIX ${CMAKE_CURRENT_SOURCE_DIR})
 
 install(
-    TARGETS library
+    TARGETS gdexample
     DESTINATION bin
 )
