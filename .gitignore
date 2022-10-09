@@ -8,3 +8,6 @@ learn_godot/bin/x11
 
 *.os
 compile_commands.json
+.DS_Store
+.ccls-cache
+.compile_commands.json

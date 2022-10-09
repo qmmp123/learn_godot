@@ -1,10 +1,20 @@
-#!python
+#!python3
 import os
+import scons_compiledb
+from SCons.Script import (
+    Variables,
+    ARGUMENTS,
+    DefaultEnvironment,
+    EnumVariable,
+    BoolVariable,
+    PathVariable,
+)
 
 opts = Variables([], ARGUMENTS)
 
 # Gets the standard flags CC, CCX, etc.
 env = DefaultEnvironment()
+scons_compiledb.enable_with_cmdline(env)
 
 # Define our options
 opts.Add(EnumVariable('target', "Compilation target", 'debug', ['d', 'debug', 'r', 'release']))
@@ -12,7 +22,7 @@ opts.Add(EnumVariable('platform', "Compilation platform", '', ['', 'windows', 'x
 opts.Add(EnumVariable('p', "Compilation target, alias for 'platform'", '', ['', 'windows', 'x11', 'linux', 'osx']))
 opts.Add(BoolVariable('use_llvm', "Use the LLVM / Clang compiler", 'no'))
 opts.Add(PathVariable('target_path', 'The path where the lib is installed.', 'learn_godot/bin/'))
-opts.Add(PathVariable('target_name', 'The library name.', 'libgdexample', PathVariable.PathAccept))
+opts.Add(PathVariable('target_name', 'The library name.', 'learn_godot', PathVariable.PathAccept))
 
 # Local dependency paths, adapt them to your setup
 godot_headers_path = "godot-cpp/godot-headers/"
@@ -93,7 +103,7 @@ else:
 cpp_library += '.' + str(bits)
 
 # make sure our binding library is properly includes
-env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/', cpp_bindings_path + 'include/gen/'])
+env.Append(CPPPATH=['.', godot_headers_path, cpp_bindings_path + 'include/gen/', cpp_bindings_path + 'include/', cpp_bindings_path + 'include/core/'])
 env.Append(LIBPATH=[cpp_bindings_path + 'bin/'])
 env.Append(LIBS=[cpp_library])
 

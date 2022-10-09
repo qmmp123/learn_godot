@@ -3,11 +3,11 @@
 singleton=false
 load_once=true
 symbol_prefix="godot_"
-reloadable=false
+reloadable=true
 
 [entry]
 
-OSX.64="res://bin/osx/libgdexample.dylib"
+OSX.64="res://bin/osx/liblearn_godot.dylib"
 
 [dependencies]
 
